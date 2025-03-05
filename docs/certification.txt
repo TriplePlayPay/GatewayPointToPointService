@@ -1,5 +1,16 @@
 Certification Values
 
+What is this?
+
+A certification is required from EPX before a go-live operation
+can take place on the platform. It is required that all requests
+and responses are logged in plaintext within a file such as this
+to verify the integrated functionality.
+
+Here you will find these broken down by: title of the operation,
+request made as a part of the operation, and the response from
+the operation.
+
 -----------------------------------------------------------
 Card Swipe Transaction With Encryption
 -----------------------------------------------------------

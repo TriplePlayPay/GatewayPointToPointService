@@ -1,0 +1,481 @@
+{
+	"info": {
+		"_postman_id": "9804f853-3907-48c5-94b4-dfce73723650",
+		"name": "P2PE Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19510440",
+		"_collection_link": "https://jeremymbolin.postman.co/workspace/826a3358-41be-47e5-a14b-d1411535faaa/collection/19510440-9804f853-3907-48c5-94b4-dfce73723650?action=share&source=collection_link&creator=19510440"
+	},
+	"item": [
+		{
+			"name": "Transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"AMOUNT\": \"1.00\",\n  \"TRAN_TYPE\": \"CCR1\",\n  \"TRACK_DATA\": \"9876540000000001=12120000000000\",\n  \"CARD_ENT_METH\": \"Q\",\n  \"INDUSTRY_TYPE\": \"P\",\n  \"E2EE\": \"0\",\n  \"CURRENCY_CODE\": \"840\",\n  \"MAC\": \"MAC9876543210\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://p2pe.tripleplaypay.network/p2pe/transaction",
+					"protocol": "https",
+					"host": [
+						"p2pe.tripleplaypay.network"
+					],
+					
+					"path": [
+						"p2pe",
+						"transaction"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Card Swipe Transaction Without Encryption",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AMOUNT\": \"1.00\",\n  \"TRAN_TYPE\": \"CCR1\",\n  \"TRACK_DATA\": \"9876540000000001=12120000000000\",\n  \"CARD_ENT_METH\": \"Q\",\n  \"INDUSTRY_TYPE\": \"P\",\n  \"E2EE\": \"0\",\n  \"CURRENCY_CODE\": \"840\",\n  \"MAC\": \"MAC9876543210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://p2pe.tripleplaypay.network/p2pe/transaction",
+							"protocol": "https",
+							"host": [
+								"p2pe.tripleplaypay.network"
+							],
+							
+							"path": [
+								"p2pe",
+								"transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "content-length",
+							"value": "755"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"AUTH_RESP\": \"96\",\n    \"AUTH_RESP_TEXT\": \"SYSTEM ERROR\",\n    \"MSG_VERSION\": \"003\",\n    \"CUST_NBR\": \"9001\",\n    \"MERCH_NBR\": \"901029\",\n    \"DBA_NBR\": \"1\",\n    \"TERMINAL_NBR\": \"1\",\n    \"TRAN_TYPE\": \"CCR1\",\n    \"BATCH_ID\": \"20250302\",\n    \"TRAN_NBR\": \"0302121548\",\n    \"LOCAL_DATE\": \"030225\",\n    \"LOCAL_TIME\": \"121548\",\n    \"AUTH_GUID\": \"09LM6838A8URT6NEMAU\",\n    \"AUTH_CODE\": null,\n    \"AUTH_CARD_TYPE\": \"L\",\n    \"AUTH_TRAN_DATE_GMT\": \"03/02/2025 05:15:48 PM\",\n    \"AUTH_AMOUNT_REQUESTED\": \"1.00\",\n    \"AUTH_AMOUNT\": \"0.00\",\n    \"AUTH_CURRENCY_CODE\": \"840\",\n    \"NETWORK_RESPONSE\": \"EQ\",\n    \"AUTH_CARD_COUNTRY_CODE\": null,\n    \"AUTH_CARD_COUNTRY_NAME\": null,\n    \"AUTH_CARD_CURRENCY_CODE\": null,\n    \"AUTH_CARD_CURRENCY_NAME\": null,\n    \"AUTH_CARD_B\": null,\n    \"AUTH_CARD_A\": null,\n    \"AUTH_CARD_C\": null,\n    \"AUTH_MASKED_ACCOUNT_NBR\": \"************0001\",\n    \"AUTH_CARD_K\": null,\n    \"AUTH_CARD_L\": null,\n    \"AUTH_EMV_DATA\": null\n}"
+				},
+				{
+					"name": "Card Swipe Transaction With Encryption",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AMOUNT\": \"1.00\",\n  \"TRAN_TYPE\": \"CCR1\",\n  \"TRACK_DATA\": \"004FFFF9876543210E0000DED4A250ABE6343390B4D1036B4D550EBC9EB81CA4BAC012E7E7D2E654B6B83413D05A2F8C7EEB902\",\n  \"CARD_ENT_METH\": \"D\",\n  \"INDUSTRY_TYPE\": \"P\",\n  \"E2EE\": \"2\",\n  \"CURRENCY_CODE\": \"840\",\n  \"MAC\": \"MAC9876543210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://p2pe.tripleplaypay.network/p2pe/transaction",
+							"protocol": "https",
+							"host": [
+								"p2pe.tripleplaypay.network"
+							],
+							
+							"path": [
+								"p2pe",
+								"transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "content-length",
+							"value": "766"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"AUTH_RESP\": \"00\",\n    \"AUTH_RESP_TEXT\": \"APPROVAL 059780\",\n    \"MSG_VERSION\": \"003\",\n    \"CUST_NBR\": \"9001\",\n    \"MERCH_NBR\": \"901029\",\n    \"DBA_NBR\": \"1\",\n    \"TERMINAL_NBR\": \"1\",\n    \"TRAN_TYPE\": \"CCR1\",\n    \"BATCH_ID\": \"20250302\",\n    \"TRAN_NBR\": \"0302123316\",\n    \"LOCAL_DATE\": \"030225\",\n    \"LOCAL_TIME\": \"123316\",\n    \"AUTH_GUID\": \"09LM68489NA8MGJNMHJ\",\n    \"AUTH_CODE\": \"059780\",\n    \"AUTH_CARD_TYPE\": \"M\",\n    \"AUTH_TRAN_DATE_GMT\": \"03/02/2025 05:33:15 PM\",\n    \"AUTH_AMOUNT_REQUESTED\": \"1.00\",\n    \"AUTH_AMOUNT\": \"1.00\",\n    \"AUTH_CURRENCY_CODE\": \"840\",\n    \"NETWORK_RESPONSE\": \"00\",\n    \"AUTH_CARD_COUNTRY_CODE\": \"840\",\n    \"AUTH_CARD_COUNTRY_NAME\": null,\n    \"AUTH_CARD_CURRENCY_CODE\": \"840\",\n    \"AUTH_CARD_CURRENCY_NAME\": null,\n    \"AUTH_CARD_B\": \"MCC\",\n    \"AUTH_CARD_A\": \"MCW\",\n    \"AUTH_CARD_C\": \"MCW\",\n    \"AUTH_MASKED_ACCOUNT_NBR\": \"************0009\",\n    \"AUTH_CARD_K\": \"N\",\n    \"AUTH_CARD_L\": null,\n    \"AUTH_EMV_DATA\": null\n}"
+				},
+				{
+					"name": "Contact EMV with Encryption",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AMOUNT\": \"1.00\",\n  \"TRAN_TYPE\": \"CCR1\",\n  \"TRACK_DATA\": \"004FFFF9876543210E0006ED082F094C48D501F5887C6A13B67277CAB3C10429A2CF58E884C4DDD23B25061B3A2D63254105226\",\n  \"EMV_DATA\": \"9F34035E03009F26089D915F3C33FB90A89F2701809F100706010A03A0A0009F3704557145629F3602006E950580C000800082021C009F3303E028C89F1A0208409F3501229F1E0837303039323839329F03060000000000009A031806019C01009F02060000000011005F2A0208409F0902008D5F3401019F4104000000079F0607A00000000310108407A0000000031010\",\n  \"CARD_ENT_METH\": \"G\",\n  \"INDUSTRY_TYPE\": \"P\",\n  \"E2EE\": \"2\",\n  \"CURRENCY_CODE\": \"840\",\n  \"MAC\": \"MAC9876543210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://p2pe.tripleplaypay.network/p2pe/transaction",
+							"protocol": "https",
+							"host": [
+								"p2pe.tripleplaypay.network"
+							],
+							
+							"path": [
+								"p2pe",
+								"transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "content-length",
+							"value": "759"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"AUTH_RESP\": \"00\",\n    \"AUTH_RESP_TEXT\": \"APPROVAL 059785\",\n    \"MSG_VERSION\": \"003\",\n    \"CUST_NBR\": \"9001\",\n    \"MERCH_NBR\": \"901029\",\n    \"DBA_NBR\": \"1\",\n    \"TERMINAL_NBR\": \"1\",\n    \"TRAN_TYPE\": \"CCR1\",\n    \"BATCH_ID\": \"20250302\",\n    \"TRAN_NBR\": \"0302123929\",\n    \"LOCAL_DATE\": \"030225\",\n    \"LOCAL_TIME\": \"123929\",\n    \"AUTH_GUID\": \"09LM684JLTEAM724MJZ\",\n    \"AUTH_CODE\": \"059785\",\n    \"AUTH_CARD_TYPE\": \"V\",\n    \"AUTH_TRAN_DATE_GMT\": \"03/02/2025 05:39:28 PM\",\n    \"AUTH_AMOUNT_REQUESTED\": \"1.00\",\n    \"AUTH_AMOUNT\": \"1.00\",\n    \"AUTH_CURRENCY_CODE\": \"840\",\n    \"NETWORK_RESPONSE\": \"00\",\n    \"AUTH_CARD_COUNTRY_CODE\": \"840\",\n    \"AUTH_CARD_COUNTRY_NAME\": \"US\",\n    \"AUTH_CARD_CURRENCY_CODE\": null,\n    \"AUTH_CARD_CURRENCY_NAME\": null,\n    \"AUTH_CARD_B\": \"C\",\n    \"AUTH_CARD_A\": null,\n    \"AUTH_CARD_C\": \"A\",\n    \"AUTH_MASKED_ACCOUNT_NBR\": \"************8282\",\n    \"AUTH_CARD_K\": \"N\",\n    \"AUTH_CARD_L\": \"C\",\n    \"AUTH_EMV_DATA\": null\n}"
+				},
+				{
+					"name": "Full Contact EMV with Encryption Minimal",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AMOUNT\": \"1.00\",\n  \"TRAN_TYPE\": \"CCR1\",\n  \"TRACK_DATA\": \"004FFFF9876543210E00006A91C1C1ED3A9559CEE546319B653311C8D9668D8C53C534BD2849280956467A2AE0B9B7B2D441940\",\n  \"EMV_DATA\": \"9F34030200009F260828BF9D3AFCC8DD529F2701809F1008010103A0000000009F37044ABAA8C49F3602008595054040040000820258009F3303E0F8C89F1A0208409F3501229F1E0832323135333731309F03060000000000009A031504309C01009F02060000000010005F2A0208409F090200025F3401009F4104000000039F0607A0000000041010\",\n  \"CARD_ENT_METH\": \"G\",\n  \"INDUSTRY_TYPE\": \"P\",\n  \"E2EE\": \"2\",\n  \"CURRENCY_CODE\": \"840\",\n  \"MAC\": \"MAC9876543210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://p2pe.tripleplaypay.network/p2pe/transaction",
+							"protocol": "https",
+							"host": [
+								"p2pe.tripleplaypay.network"
+							],
+							
+							"path": [
+								"p2pe",
+								"transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "content-length",
+							"value": "762"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"AUTH_RESP\": \"00\",\n    \"AUTH_RESP_TEXT\": \"APPROVAL 059788\",\n    \"MSG_VERSION\": \"003\",\n    \"CUST_NBR\": \"9001\",\n    \"MERCH_NBR\": \"901029\",\n    \"DBA_NBR\": \"1\",\n    \"TERMINAL_NBR\": \"1\",\n    \"TRAN_TYPE\": \"CCR1\",\n    \"BATCH_ID\": \"20250302\",\n    \"TRAN_NBR\": \"0302124259\",\n    \"LOCAL_DATE\": \"030225\",\n    \"LOCAL_TIME\": \"124259\",\n    \"AUTH_GUID\": \"09LM684Q34HJPT0QMM6\",\n    \"AUTH_CODE\": \"059788\",\n    \"AUTH_CARD_TYPE\": \"M\",\n    \"AUTH_TRAN_DATE_GMT\": \"03/02/2025 05:42:59 PM\",\n    \"AUTH_AMOUNT_REQUESTED\": \"1.00\",\n    \"AUTH_AMOUNT\": \"1.00\",\n    \"AUTH_CURRENCY_CODE\": \"840\",\n    \"NETWORK_RESPONSE\": \"00\",\n    \"AUTH_CARD_COUNTRY_CODE\": null,\n    \"AUTH_CARD_COUNTRY_NAME\": null,\n    \"AUTH_CARD_CURRENCY_CODE\": null,\n    \"AUTH_CARD_CURRENCY_NAME\": null,\n    \"AUTH_CARD_B\": null,\n    \"AUTH_CARD_A\": null,\n    \"AUTH_CARD_C\": null,\n    \"AUTH_MASKED_ACCOUNT_NBR\": \"************1049\",\n    \"AUTH_CARD_K\": null,\n    \"AUTH_CARD_L\": null,\n    \"AUTH_EMV_DATA\": null\n}"
+				},
+				{
+					"name": "Full Contact EMV with Encryption - WRONG_PIN",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AMOUNT\": \"1.00\",\n  \"TRAN_TYPE\": \"CCR1\",\n  \"TRACK_DATA\": \"004FFFF9876543210E00006A91C1C1ED3A9559CEE546319B653311C8D9668D8C53C534BD2849280956467A2AE0B9B7B2D441940\",\n  \"EMV_DATA\": \"9F34030200009F260828BF9D3AFCC8DD529F2701809F1008010103A0000000009F37044ABAA8C49F3602008595054040040000820258009F3303E0F8C89F1A0208409F3501229F1E0832323135333731309F03060000000000009A031504309C01009F02060000000010005F2A0208409F090200025F3401009F4104000000039F0607A0000000041010\",\n  \"CARD_ENT_METH\": \"G\",\n  \"INDUSTRY_TYPE\": \"P\",\n  \"E2EE\": \"2\",\n  \"CURRENCY_CODE\": \"840\",\n  \"PIN_BLK\": \"CC1D39F77DC96766FFFF9876543210E00001\",\n  \"CARD_ID\": \"P\",\n  \"MAC\": \"MAC9876543210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://p2pe.tripleplaypay.network/p2pe/transaction",
+							"protocol": "https",
+							"host": [
+								"p2pe.tripleplaypay.network"
+							],
+							
+							"path": [
+								"p2pe",
+								"transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "content-length",
+							"value": "752"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"AUTH_RESP\": \"55\",\n    \"AUTH_RESP_TEXT\": \"WRONG PIN\",\n    \"MSG_VERSION\": \"003\",\n    \"CUST_NBR\": \"9001\",\n    \"MERCH_NBR\": \"901029\",\n    \"DBA_NBR\": \"1\",\n    \"TERMINAL_NBR\": \"1\",\n    \"TRAN_TYPE\": \"CCR1\",\n    \"BATCH_ID\": \"20250302\",\n    \"TRAN_NBR\": \"0302124557\",\n    \"LOCAL_DATE\": \"030225\",\n    \"LOCAL_TIME\": \"124557\",\n    \"AUTH_GUID\": \"09LM684VGZBH4WTJMNE\",\n    \"AUTH_CODE\": null,\n    \"AUTH_CARD_TYPE\": \"M\",\n    \"AUTH_TRAN_DATE_GMT\": \"03/02/2025 05:45:57 PM\",\n    \"AUTH_AMOUNT_REQUESTED\": \"1.00\",\n    \"AUTH_AMOUNT\": \"0.00\",\n    \"AUTH_CURRENCY_CODE\": \"840\",\n    \"NETWORK_RESPONSE\": \"55\",\n    \"AUTH_CARD_COUNTRY_CODE\": null,\n    \"AUTH_CARD_COUNTRY_NAME\": null,\n    \"AUTH_CARD_CURRENCY_CODE\": null,\n    \"AUTH_CARD_CURRENCY_NAME\": null,\n    \"AUTH_CARD_B\": null,\n    \"AUTH_CARD_A\": null,\n    \"AUTH_CARD_C\": null,\n    \"AUTH_MASKED_ACCOUNT_NBR\": \"************1049\",\n    \"AUTH_CARD_K\": null,\n    \"AUTH_CARD_L\": null,\n    \"AUTH_EMV_DATA\": null\n}"
+				},
+				{
+					"name": "Contactless EMV with Encryption",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AMOUNT\": \"1.00\",\n  \"TRAN_TYPE\": \"CCR1\",\n  \"TRACK_DATA\": \"004FFFF9876543210E00006A91C1C1ED3A9559CEE546319B653311C8D9668D8C53C534BD2849280956467A2AE0B9B7B2D441940\",\n  \"EMV_DATA\": \"9F34030200009F260828BF9D3AFCC8DD529F2701809F1008010103A0000000009F37044ABAA8C49F3602008595054040040000820258009F3303E0F8C89F1A0208409F3501229F1E0832323135333731309F03060000000000009A031504309C01009F02060000000010005F2A0208409F090200025F3401009F4104000000039F0607A0000000041010\",\n  \"CARD_ENT_METH\": \"R\",\n  \"INDUSTRY_TYPE\": \"P\",\n  \"E2EE\": \"2\",\n  \"CURRENCY_CODE\": \"840\",\n  \"MAC\": \"MAC9876543210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://p2pe.tripleplaypay.network/p2pe/transaction",
+							"protocol": "https",
+							"host": [
+								"p2pe.tripleplaypay.network"
+							],
+							
+							"path": [
+								"p2pe",
+								"transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "content-length",
+							"value": "762"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"AUTH_RESP\": \"00\",\n    \"AUTH_RESP_TEXT\": \"APPROVAL 059796\",\n    \"MSG_VERSION\": \"003\",\n    \"CUST_NBR\": \"9001\",\n    \"MERCH_NBR\": \"901029\",\n    \"DBA_NBR\": \"1\",\n    \"TERMINAL_NBR\": \"1\",\n    \"TRAN_TYPE\": \"CCR1\",\n    \"BATCH_ID\": \"20250302\",\n    \"TRAN_NBR\": \"0302125146\",\n    \"LOCAL_DATE\": \"030225\",\n    \"LOCAL_TIME\": \"125146\",\n    \"AUTH_GUID\": \"09LM685A5WML27KVMPM\",\n    \"AUTH_CODE\": \"059796\",\n    \"AUTH_CARD_TYPE\": \"M\",\n    \"AUTH_TRAN_DATE_GMT\": \"03/02/2025 05:51:45 PM\",\n    \"AUTH_AMOUNT_REQUESTED\": \"1.00\",\n    \"AUTH_AMOUNT\": \"1.00\",\n    \"AUTH_CURRENCY_CODE\": \"840\",\n    \"NETWORK_RESPONSE\": \"00\",\n    \"AUTH_CARD_COUNTRY_CODE\": null,\n    \"AUTH_CARD_COUNTRY_NAME\": null,\n    \"AUTH_CARD_CURRENCY_CODE\": null,\n    \"AUTH_CARD_CURRENCY_NAME\": null,\n    \"AUTH_CARD_B\": null,\n    \"AUTH_CARD_A\": null,\n    \"AUTH_CARD_C\": null,\n    \"AUTH_MASKED_ACCOUNT_NBR\": \"************1049\",\n    \"AUTH_CARD_K\": null,\n    \"AUTH_CARD_L\": null,\n    \"AUTH_EMV_DATA\": null\n}"
+				},
+				{
+					"name": "Contactless MSD with Encryption",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AMOUNT\": \"1.00\",\n  \"TRAN_TYPE\": \"CCR1\",\n  \"TRACK_DATA\": \"004FFFF9876543210E00006A91C1C1ED3A9559CEE546319B653311C8D9668D8C53C534BD2849280956467A2AE0B9B7B2D441940\",\n  \"CARD_ENT_METH\": \"Q\",\n  \"INDUSTRY_TYPE\": \"P\",\n  \"E2EE\": \"2\",\n  \"CURRENCY_CODE\": \"840\",\n  \"MAC\": \"MAC9876543210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://p2pe.tripleplaypay.network/p2pe/transaction",
+							"protocol": "https",
+							"host": [
+								"p2pe.tripleplaypay.network"
+							],
+							
+							"path": [
+								"p2pe",
+								"transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "content-length",
+							"value": "762"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"AUTH_RESP\": \"00\",\n    \"AUTH_RESP_TEXT\": \"APPROVAL 059802\",\n    \"MSG_VERSION\": \"003\",\n    \"CUST_NBR\": \"9001\",\n    \"MERCH_NBR\": \"901029\",\n    \"DBA_NBR\": \"1\",\n    \"TERMINAL_NBR\": \"1\",\n    \"TRAN_TYPE\": \"CCR1\",\n    \"BATCH_ID\": \"20250302\",\n    \"TRAN_NBR\": \"0302130011\",\n    \"LOCAL_DATE\": \"030225\",\n    \"LOCAL_TIME\": \"130010\",\n    \"AUTH_GUID\": \"09LM685PXDQ5E1RRMZT\",\n    \"AUTH_CODE\": \"059802\",\n    \"AUTH_CARD_TYPE\": \"M\",\n    \"AUTH_TRAN_DATE_GMT\": \"03/02/2025 06:00:10 PM\",\n    \"AUTH_AMOUNT_REQUESTED\": \"1.00\",\n    \"AUTH_AMOUNT\": \"1.00\",\n    \"AUTH_CURRENCY_CODE\": \"840\",\n    \"NETWORK_RESPONSE\": \"00\",\n    \"AUTH_CARD_COUNTRY_CODE\": null,\n    \"AUTH_CARD_COUNTRY_NAME\": null,\n    \"AUTH_CARD_CURRENCY_CODE\": null,\n    \"AUTH_CARD_CURRENCY_NAME\": null,\n    \"AUTH_CARD_B\": null,\n    \"AUTH_CARD_A\": null,\n    \"AUTH_CARD_C\": null,\n    \"AUTH_MASKED_ACCOUNT_NBR\": \"************1049\",\n    \"AUTH_CARD_K\": null,\n    \"AUTH_CARD_L\": null,\n    \"AUTH_EMV_DATA\": null\n}"
+				},
+				{
+					"name": "EMV Fallback with Encryption",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"AMOUNT\": \"1.00\",\n  \"TRAN_TYPE\": \"CCR1\",\n  \"TRACK_DATA\": \"004FFFF9876543210E00009A0D85CC20880302E11AACA32111B0668818B76D88D2AD1AEE05FD4DFC9C015700FBDC4B5C52F6B0F\",\n  \"CARD_ENT_METH\": \"D\",\n  \"INDUSTRY_TYPE\": \"P\",\n  \"E2EE\": \"2\",\n  \"CURRENCY_CODE\": \"840\",\n  \"MAC\": \"MAC9876543210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://p2pe.tripleplaypay.network/p2pe/transaction",
+							"protocol": "https",
+							"host": [
+								"p2pe.tripleplaypay.network"
+							],
+							
+							"path": [
+								"p2pe",
+								"transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "content-length",
+							"value": "762"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"AUTH_RESP\": \"00\",\n    \"AUTH_RESP_TEXT\": \"APPROVAL 059809\",\n    \"MSG_VERSION\": \"003\",\n    \"CUST_NBR\": \"9001\",\n    \"MERCH_NBR\": \"901029\",\n    \"DBA_NBR\": \"1\",\n    \"TERMINAL_NBR\": \"1\",\n    \"TRAN_TYPE\": \"CCR1\",\n    \"BATCH_ID\": \"20250302\",\n    \"TRAN_NBR\": \"0302130844\",\n    \"LOCAL_DATE\": \"030225\",\n    \"LOCAL_TIME\": \"130843\",\n    \"AUTH_GUID\": \"09LM68697AQ3VQUPN03\",\n    \"AUTH_CODE\": \"059809\",\n    \"AUTH_CARD_TYPE\": \"M\",\n    \"AUTH_TRAN_DATE_GMT\": \"03/02/2025 06:08:43 PM\",\n    \"AUTH_AMOUNT_REQUESTED\": \"1.00\",\n    \"AUTH_AMOUNT\": \"1.00\",\n    \"AUTH_CURRENCY_CODE\": \"840\",\n    \"NETWORK_RESPONSE\": \"00\",\n    \"AUTH_CARD_COUNTRY_CODE\": null,\n    \"AUTH_CARD_COUNTRY_NAME\": null,\n    \"AUTH_CARD_CURRENCY_CODE\": null,\n    \"AUTH_CARD_CURRENCY_NAME\": null,\n    \"AUTH_CARD_B\": null,\n    \"AUTH_CARD_A\": null,\n    \"AUTH_CARD_C\": null,\n    \"AUTH_MASKED_ACCOUNT_NBR\": \"************1189\",\n    \"AUTH_CARD_K\": null,\n    \"AUTH_CARD_L\": null,\n    \"AUTH_EMV_DATA\": null\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "YOUR_BEARER_TOKEN_HERE",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
