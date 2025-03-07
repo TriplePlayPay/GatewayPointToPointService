@@ -17,9 +17,11 @@ from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.backends import default_backend
 import os
 
+from dotenv import load_dotenv
+
 
 class TerminalClient:
-    def __init__(self, terminal_id, service_url="http://localhost:8000"):
+    def __init__(self, terminal_id, api_key, service_url="http://localhost:8000"):
         """
         Initialize the terminal client
 
@@ -29,9 +31,11 @@ class TerminalClient:
         """
         self.terminal_id = terminal_id
         self.service_url = service_url
+        self.api_key = api_key
         self.private_key = None
         self.public_key = None
         self.service_public_key = None
+        self.full_ksn = None
 
         # Check if we have keys already, if not generate them
         self._load_or_generate_keys()
@@ -89,7 +93,8 @@ class TerminalClient:
             # Send registration request
             response = requests.post(
                 f"{self.service_url}/p2pe/register-terminal-for-remote-key-injection",
-                json=payload
+                json=payload,
+                headers={"Authorization": f"Bearer {self.api_key}"}
             )
 
             if response.status_code != 200:
@@ -99,6 +104,7 @@ class TerminalClient:
 
             # Store the service's public key
             response_data = response.json()
+            self.full_ksn = response_data["full_ksn"]
             self.service_public_key = serialization.load_pem_public_key(
                 response_data["service_public_key"].encode(),
                 backend=default_backend()
@@ -197,17 +203,19 @@ class TerminalClient:
             # Prepare payload - KSN is now fully managed by the server
             payload = {
                 "terminal_id": self.terminal_id,
-                "nonce": nonce
+                "nonce": nonce,
             }
 
             # Sign the payload
             signature = self._sign_payload(payload)
             payload["signature"] = signature
+            payload["full_ksn"] = self.full_ksn
 
             # Send the request
             response = requests.post(
                 f"{self.service_url}/p2pe/get-key-from-registered-terminal-for-remote-key-injection",
-                json=payload
+                json=payload,
+                headers={"Authorization": f"Bearer {self.api_key}"}
             )
 
             if response.status_code != 200:
@@ -256,11 +264,17 @@ def randomize_number(num_str):
 
 
 if __name__ == "__main__":
+    # load environment
+    load_dotenv()
+
+    # get api key
+    api_key = os.getenv("API_KEY")
+
     # Example usage
-    terminal_id = f"TERM{randomize_number('123456')}"  # Use a unique terminal ID
+    terminal_id = f"AECD{randomize_number('123456')}"  # Use a unique terminal ID
 
     # Create the terminal client
-    terminal = TerminalClient(terminal_id)
+    terminal = TerminalClient(terminal_id, api_key)
 
     # Register with the service (only needs to be done once)
     terminal.register()

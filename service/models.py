@@ -99,5 +99,4 @@ class RemoteKeyInjectionParameters:
     nonce: str
     signature: str
     public_key: str
-    ksn_base: str
-    counter: int
+    full_ksn: str
