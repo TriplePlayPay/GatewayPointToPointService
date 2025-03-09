@@ -104,9 +104,9 @@ class TerminalClient:
 
             # Store the service's public key
             response_data = response.json()
-            self.full_ksn = response_data["full_ksn"]
+            self.full_ksn = response_data["message"]["full_ksn"]
             self.service_public_key = serialization.load_pem_public_key(
-                response_data["service_public_key"].encode(),
+                response_data["message"]["service_public_key"].encode(),
                 backend=default_backend()
             )
 
@@ -203,6 +203,7 @@ class TerminalClient:
             # Prepare payload - KSN is now fully managed by the server
             payload = {
                 "terminal_id": self.terminal_id,
+                "full_ksn": self.full_ksn,
                 "nonce": nonce,
             }
 
