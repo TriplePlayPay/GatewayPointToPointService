@@ -7,6 +7,7 @@ from service.logger import get_logger
 from service.models import TransactionRequest, TerminalRegistryParameters, RemoteKeyInjectionParameters, InitialRemoteKeyInjectionParameters
 from service.authorization import get_api_key_from_http_request, get_credentials_from_api_key
 from service.cryptography import register_terminal, get_key_for_remote_key_injection, get_remote_key_injection_parameters_from_terminal_id
+from service.environment import is_qa_environment
 from service.json_util import ignore_properties
 from service.epx import EPXProcessor
 
@@ -24,7 +25,7 @@ async def transaction(request: Request) -> JSONResponse:
     :return: JSONResponse
     """
 
-    is_qa = True
+    is_qa = is_qa_environment()
     logger.info(f"Transaction called with the following parameters: {request.json}")
     request_input = ignore_properties(TransactionRequest, request.json)
 
@@ -57,7 +58,7 @@ async def register_terminal_for_rki(request: Request) -> JSONResponse:
     :return: JSONResponse
     """
 
-    is_qa = True
+    is_qa = is_qa_environment()
     logger.info(f"register_terminal_for_rki called with the following parameters: {request.json}")
     request_input = ignore_properties(TerminalRegistryParameters, request.json)
 
@@ -82,7 +83,7 @@ async def get_key_from_registered_terminal_for_remote_key_injection(request: Req
     :return: JSONResponse
     """
 
-    is_qa = True
+    is_qa = is_qa_environment()
     logger.info(f"register_terminal_for_rki called with the following parameters: {request.json}")
     request_input = ignore_properties(InitialRemoteKeyInjectionParameters, request.json)
 
