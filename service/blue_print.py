@@ -25,7 +25,8 @@ async def transaction(request: Request) -> JSONResponse:
     :return: JSONResponse
     """
 
-    is_qa = is_qa_environment()
+    # is_qa = is_qa_environment()
+    is_qa = True  # Hardcode to True for now to just use test credentials with EPX
     logger.info(f"Transaction called with the following parameters: {request.json}")
     request_input = ignore_properties(TransactionRequest, request.json)
 

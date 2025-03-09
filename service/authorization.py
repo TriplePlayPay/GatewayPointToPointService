@@ -51,7 +51,7 @@ async def get_credentials_from_api_key(api_key: str, is_qa: bool = False) -> EPX
     }
     headers = {"Authorization": f"Bearer {api_key}"}
     logger.info(f"Submitting data for authorization: {data}")
-    # url = 'http://localhost/passthrough' if is_qa else 'https://tripleplaypay.com/passthrough'
+
     url = 'https://tripleplaypay.com/passthrough'
 
     # use async ClientSession to POST
