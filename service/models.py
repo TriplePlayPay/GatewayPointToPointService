@@ -78,3 +78,25 @@ class TransactionResponse:
     AUTH_CARD_K: Optional[str] = None
     AUTH_CARD_L: Optional[str] = None
     AUTH_EMV_DATA: Optional[str] = None
+
+
+@dataclass
+class TerminalRegistryParameters:
+    terminal_id: str
+    public_key: str
+
+
+@dataclass
+class InitialRemoteKeyInjectionParameters:
+    terminal_id: str
+    nonce: str
+    signature: str
+
+
+@dataclass
+class RemoteKeyInjectionParameters:
+    terminal_id: str
+    nonce: str
+    signature: str
+    public_key: str
+    full_ksn: str
