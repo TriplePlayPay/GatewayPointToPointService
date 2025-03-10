@@ -25,7 +25,6 @@ async def transaction(request: Request) -> JSONResponse:
     :return: JSONResponse
     """
 
-    # is_qa = is_qa_environment()
     is_qa = True  # Hardcode to True for now to just use test credentials with EPX
     logger.info(f"Transaction called with the following parameters: {request.json}")
     request_input = ignore_properties(TransactionRequest, request.json)
@@ -95,13 +94,13 @@ async def get_key_from_registered_terminal_for_remote_key_injection(request: Req
             request_input, api_key, is_qa
         )
     except Exception:
-        logger.exception("Exception while attempting to register terminal")
-        raise SanicException("Unable to successfully complete terminal registration.", status_code=400)
+        logger.exception("Exception while formatting remote key injection parameters.")
+        raise SanicException("Unable to get key injection parameters from provided terminal.", status_code=400)
 
     try:
         result = await get_key_for_remote_key_injection(parameters, is_qa)
     except Exception:
         logger.exception("Exception while attempting to register terminal")
-        raise SanicException("Unable to successfully complete terminal registration.", status_code=400)
+        raise SanicException("Unable to successfully complete terminal key injection.", status_code=400)
 
     return json(result)

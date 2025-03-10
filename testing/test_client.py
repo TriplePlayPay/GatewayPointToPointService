@@ -104,6 +104,8 @@ class TerminalClient:
 
             # Store the service's public key
             response_data = response.json()
+            print(f"RESPONSE DATA: {response_data}")
+            print(f"RESPONSE DATA MESSAGE: {response_data['message']}")
             self.full_ksn = response_data["message"]["full_ksn"]
             self.service_public_key = serialization.load_pem_public_key(
                 response_data["message"]["service_public_key"].encode(),
@@ -121,7 +123,7 @@ class TerminalClient:
             return True
         except Exception as e:
             print(f"Registration error: {str(e)}")
-            return False
+            raise
 
     def _sign_payload(self, payload):
         """Sign a payload with the terminal's private key"""

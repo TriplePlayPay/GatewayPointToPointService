@@ -51,7 +51,7 @@ async def get_key_for_remote_key_injection(
     :param is_qa: bool
     :return: Dict[str, Any]
     """
-    url = "http://localhost:9001/api/ipek" if is_qa else "https://cryptography.tripleplaypay.com/api/ipek"
+    url = "http://localhost:9001/api/ipek" if is_qa else "https://cryptography.tripleplaypay.network/api/ipek"
     courier_request = CourierRequest(
         mode="POST",
         url=url,
